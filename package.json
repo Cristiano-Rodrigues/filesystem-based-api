@@ -1,6 +1,6 @@
 {
-  "name": "route-based-app",
-  "version": "1.0.0",
+  "name": "route-based-api",
+  "version": "0.1.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -8,9 +8,9 @@
     "debug": "nodemon --inspect ./src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cristiano Rodrigues",
   "license": "ISC",
-  "description": "",
+  "description": "A repository to use the filesystem structure to create routes",
   "devDependencies": {
     "@types/node": "^22.13.9",
     "nodemon": "^3.1.9",
@@ -19,5 +19,13 @@
   "dependencies": {
     "@types/express": "^5.0.0",
     "express": "^4.21.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cristiano-Rodrigues/filesystem-based-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Cristiano-Rodrigues/filesystem-based-api/issues"
+  },
+  "homepage": "https://github.com/Cristiano-Rodrigues/filesystem-based-api#readme"
 }
