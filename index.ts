@@ -1,5 +1,6 @@
 import { readdirSync, statSync } from 'fs'
 import { join, parse, sep } from 'path'
+import { fileURLToPath, pathToFileURL } from 'url'
 import { HTTPMethod, Request, Response, RouteDescriber, Router } from './types.js'
 
 const allowedHttpMethods = [
@@ -42,20 +43,22 @@ class RouteFilesHandler {
 
   async loadAll () {
     let loaded: RouteDescriber[] = []
-
+  
     for (const file of this.routeFiles) {
-      const relPath = './'.concat(join(this.routeFolder, file))
-      const exported = await import(relPath)
+      const absPath = join(this.path, file)
+      const fileUrl = pathToFileURL(absPath).href
+  
+      const exported = await import(fileUrl)
       const methods = Object.keys(exported)
         .filter((m: string) => allowedHttpMethods.includes(m)) as HTTPMethod[]
       const route = fileToRoute(file)
-
+  
       loaded = loaded.concat(methods.map((name: HTTPMethod) => ({
         route,
         method: { name, fn: exported[name] }
       })))
     }
-
+  
     return loaded
   }
 }
