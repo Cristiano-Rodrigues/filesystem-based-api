@@ -1,11 +1,14 @@
 {
   "name": "route-based-api",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.1.1",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "npx tsc --watch -outDir src",
-    "debug": "nodemon --inspect ./src/index.js"
+    "build": "npx tsc --outDir ./dist",
+    "debug": "nodemon --inspect ./dist/index.js"
+  },
+  "exports": {
+    "import": "./dist/index.js"
   },
   "keywords": [],
   "author": "Cristiano Rodrigues",
