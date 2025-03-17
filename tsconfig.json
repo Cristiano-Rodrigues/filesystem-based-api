@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "incremental": true,
     "target": "es2017",
     "jsx": "preserve",
